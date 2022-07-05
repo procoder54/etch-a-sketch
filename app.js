@@ -1,4 +1,12 @@
 const container = document.querySelector('.container')
+// const gridSize = document.querySelector('button');
+// gridSize.addEventListener('click', () => {
+//   size = parseInt(prompt(`Grid Size?`));
+//   if((size < 100 && size > 0)){
+//     // container.removeChild();
+//     createGrid(size);
+//   }
+// })
 
 function createGrid(gridSize) {
   for (let i = 0; i < gridSize; i++) {
