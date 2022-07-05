@@ -1,12 +1,28 @@
-const container = document.querySelector('.container');
-let grid = 16;
-for (let i = 1; i <= grid; i++) {
-  const content = document.createElement('div');
-  content.classList.add('content');
-  for (let j = 1; j <= grid; j++) {
-    let div = document.createElement('div');
-    div.classList.add('box');
-    content.appendChild(div);
+const container = document.querySelector('.container')
+
+function createGrid(gridSize) {
+  for (let i = 0; i < gridSize; i++) {
+    const line = document.createElement('div');
+    line.classList.add('line');
+    for (let i = 0; i < gridSize; i++){
+      const box = document.createElement('div');
+      box.classList.add('box');
+      line.appendChild(box);
+    }
+    container.appendChild(line);
   }
-  container.appendChild(content);
 }
+
+createGrid(20);
+
+function changeColor() {
+  color = `rgb(${Math.floor(Math.random()*255)},${Math.floor(Math.random()*255)},${Math.floor(Math.random()*255)})`;
+  return color;
+}
+
+const boxes = document.querySelectorAll('.container > div > div');
+boxes.forEach(box => {
+  box.addEventListener('mouseover', () => {
+    box.setAttribute('style', `background: ${changeColor()};`);
+  })
+})
